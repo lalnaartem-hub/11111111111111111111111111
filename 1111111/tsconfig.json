@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@browser-os/types": ["./packages/types/src"],
+      "@browser-os/storage-manager": ["./packages/storage-manager/src"],
+      "@browser-os/kernel": ["./packages/kernel/src"],
+      "@browser-os/file-system": ["./packages/file-system/src"],
+      "@browser-os/process-manager": ["./packages/process-manager/src"],
+      "@browser-os/window-manager": ["./packages/window-manager/src"],
+      "@browser-os/gui-shell": ["./packages/gui-shell/src"],
+      "@browser-os/emulator": ["./packages/emulator/src"],
+      "@browser-os/terminal": ["./packages/terminal/src"],
+      "@browser-os/api": ["./packages/api/src"]
+    }
+  },
+  "include": ["src", "packages"],
+  "references": [
+    { "path": "./tsconfig.node.json" }
+  ]
+}

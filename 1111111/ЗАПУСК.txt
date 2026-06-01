@@ -1,0 +1,16 @@
+Browser OS - zapusk
+===================
+
+1) Dvazhdy shchelknite:  start-dev.cmd
+   Otkroite: http://localhost:5173/
+
+2) Esli Node ne naiden - ustanovite s https://nodejs.org/
+
+3) Oboi Kali: setup-wallpapers.cmd (rabotaet BEZ interneta - sozdaet SVG)
+
+4) Temnaya tema:
+   Nastrojki -> Oformlenie -> Temnaya
+   Esli ne vidno raznicy - v Nastrojki -> Sistema vyberite macOS (ne Kali)
+
+5) Ne zapuskajte "node ..." v PowerShell esli node ne v PATH -
+   tolko start-dev.cmd i setup-wallpapers.cmd

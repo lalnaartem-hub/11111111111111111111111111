@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #000;
+}
+
+#root {
+  zoom: var(--ui-scale, 1);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent, #007aff) 25%, transparent);
+}
+
+.overflow-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.overflow-auto::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.toolbar-btn {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+.toolbar-btn:hover:not(:disabled) {
+  background: #f9fafb;
+}
+.toolbar-btn:disabled {
+  opacity: 0.4;
+}
+
+.toolbar-btn-primary {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  background: var(--accent, #007aff);
+  color: #fff;
+  border: none;
+}
+
+.toolbar-btn-accent {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  background: #059669;
+  color: #fff;
+  border: none;
+}
+
+.path-link {
+  color: var(--accent, #007aff);
+}
+.path-link:hover {
+  text-decoration: underline;
+}
+
+/* ——— macOS ——— */
+[data-os='macos'] {
+  --accent: #007aff;
+  --os-accent: #007aff;
+}
+
+[data-os='macos'] .os-dock {
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+[data-os='macos'] .os-dock.os-dock-dark {
+  background: rgba(40, 40, 44, 0.72);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-os='macos'] .os-menubar {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+[data-os='macos'] .os-desktop {
+  padding-bottom: 88px;
+}
+
+/* ——— Kali Linux ——— */
+[data-os='linux'] {
+  --accent: #367bf0;
+  --os-accent: #367bf0;
+}
+
+[data-os='linux'] .os-dock {
+  border-radius: 0.5rem;
+  background: rgba(30, 30, 46, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(54, 123, 240, 0.4);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 0.35rem;
+}
+
+[data-os='linux'] .os-desktop {
+  padding-left: 72px;
+  padding-bottom: 24px;
+}
+
+.os-linux-body {
+  color-scheme: dark;
+}
+
+.browser-nav-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-os='linux'] .browser-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes boot-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.boot-bar-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  animation: boot-shimmer 1.8s ease-in-out infinite;
+}
+
+/* ——— Глобальная тёмная тема ——— */
+html[data-theme='dark'],
+html.dark {
+  color-scheme: dark;
+}
+
+html[data-theme='dark'] body,
+html.dark body {
+  background: #0a0a0c !important;
+}
+
+html[data-theme='dark'] .window-body {
+  background: #1a1a1e !important;
+  color: #f5f5f7 !important;
+}
+
+html[data-theme='dark'] .settings-app {
+  background: #1c1c1e !important;
+  color: #f5f5f7 !important;
+}
+
+html[data-theme='dark'] .settings-app aside {
+  background: #2c2c2e !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme='dark'] .settings-app input,
+html[data-theme='dark'] .settings-app select,
+html[data-theme='dark'] .settings-app textarea {
+  background: #2c2c2e !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #f5f5f7 !important;
+}
+
+html[data-theme='dark'] .settings-app h3,
+html[data-theme='dark'] .settings-app label,
+html[data-theme='dark'] .settings-app .text-gray-500,
+html[data-theme='dark'] .settings-app .text-gray-900 {
+  color: #e5e5ea !important;
+}
+
+html[data-theme='dark'] .files-app {
+  background: #1a1a1e !important;
+  color: #e5e5ea !important;
+}
+
+html[data-theme='dark'] .app-store-app {
+  background: #1c1c1e !important;
+  color: #f5f5f7 !important;
+}
+
+html[data-theme='dark'] .app-store-app aside,
+html[data-theme='dark'] .app-store-app .app-store-header {
+  background: #2c2c2e !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme='dark'] .app-store-card {
+  background: #2c2c2e !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f5f5f7 !important;
+}
+
+html[data-theme='dark'] .welcome-app {
+  color: #d1d1d6 !important;
+}
+
+html[data-theme='dark'] .welcome-app h2,
+html[data-theme='dark'] .welcome-app h3 {
+  color: #f5f5f7 !important;
+}
+
+html[data-theme='dark'] .welcome-app code {
+  background: #3a3a3c !important;
+  color: #e5e5ea !important;
+}
+
+html[data-theme='dark'] .calculator-app {
+  background: #1c1c1e !important;
+}
+
+html[data-theme='dark'] .calculator-app .calc-display {
+  background: #2c2c2e !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f5f5f7 !important;
+}
+
+html[data-theme='dark'] .calculator-app .calc-btn {
+  background: #3a3a3c !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #f5f5f7 !important;
+}
+
+html[data-theme='dark'] .calculator-app .calc-btn:hover {
+  background: #48484a !important;
+}
+
+html[data-theme='dark'] .shell-notification {
+  background: rgba(44, 44, 46, 0.95) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f5f5f7 !important;
+}
+
+html[data-theme='dark'] .toolbar-btn {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: #2c2c2e;
+  color: #f5f5f7;
+}
+html[data-theme='dark'] .toolbar-btn:hover:not(:disabled) {
+  background: #3a3a3c;
+}
+
+html[data-theme='dark'] .overflow-auto {
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
